@@ -11,9 +11,10 @@ import "driver.js/dist/driver.css";
 import { io, Socket } from 'socket.io-client';
 import type { Player } from './types';
 
-// Initialize socket outside component to prevent multiple connections
-const socket: Socket = io('http://localhost:3000', {
-  autoConnect: false // Connect only when needed or on mount if preferred
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+
+const socket: Socket = io(BACKEND_URL, {
+  autoConnect: false
 });
 
 function App() {
