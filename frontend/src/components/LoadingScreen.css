@@ -1,0 +1,119 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-content {
+    text-align: center;
+    padding: 40px 50px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.loading-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0 0 30px 0;
+    background: linear-gradient(135deg, #667eea 0%, #a855f7 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.loading-content h2 {
+    margin: 20px 0 10px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+
+.loading-content h2.error-message {
+    color: #f87171;
+}
+
+.sub-message {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 20px 0;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.retry-btn {
+    background: linear-gradient(135deg, #667eea 0%, #a855f7 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: all 0.2s ease;
+}
+
+.retry-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.myth-container {
+    margin-top: 30px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid #667eea;
+}
+
+.myth-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.5;
+    animation: fadeMyth 4s ease-in-out infinite;
+}
+
+@keyframes fadeMyth {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.loading-footer {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 25px;
+}

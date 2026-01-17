@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+*.env
+
+# Build outputs
+dist/
+build/
+*.build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Package manager locks (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+
+# Debug files
+*.map
+
+# Testing
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backend specific
+backend/drop_index.js
+
+# Frontend specific
+frontend/.vite/
+
+# Git
+.git/

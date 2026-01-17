@@ -1,0 +1,404 @@
+/* Global Styles handled in index.css */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #1F2840 0%, #0F1626 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Error Toast */
+.error-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: 0 8px 25px rgba(221, 36, 118, 0.5);
+  animation: slideDown 0.3s ease-out;
+  text-align: center;
+  max-width: 90%;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.game-container {
+  width: 95%;
+  max-width: 900px;
+  /* Made larger */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Glass Effect Generic Class */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.score-board {
+  display: flex;
+  gap: 30px;
+  /* More spacing */
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-radius: 12px;
+  min-width: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #8F9BB3;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.stat-item div {
+  /* The value */
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-item.missed div {
+  color: #FF5E62;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stop-button {
+  background: linear-gradient(135deg, #FF512F 0%, #DD2476 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(221, 36, 118, 0.4);
+}
+
+.stop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(221, 36, 118, 0.6);
+}
+
+.stop-button:active {
+  transform: translateY(1px);
+}
+
+/* Timer Container */
+.timer-container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.3));
+}
+
+/* Game Box */
+.game-box {
+  min-height: 55vh;
+  /* Taller */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  /* Subtle bg hint */
+}
+
+.bubbles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  /* More breathing room */
+  padding: 20px;
+  width: 100%;
+}
+
+/* BUBBLE STYLES */
+.bubble {
+  width: 110px;
+  /* Larger */
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.05),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  /* overflow: hidden; Removed to allow badges to be visible */
+}
+
+.bubble:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.bubble-text {
+  font-size: 1.6rem;
+  /* Larger text */
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 1.2;
+  padding: 5px;
+  word-break: break-word;
+}
+
+/* Selected State */
+.bubble.selected {
+  background: rgba(66, 165, 245, 0.3);
+  border-color: #42A5F5;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(66, 165, 245, 0.5);
+}
+
+.bubble.selected .bubble-text {
+  color: #E3F2FD;
+}
+
+/* Correct State */
+.bubble.correct {
+  background: rgba(76, 175, 80, 0.5);
+  border-color: #4CAF50;
+  transform: scale(1.15);
+  box-shadow: 0 0 30px rgba(76, 175, 80, 0.6);
+}
+
+/* Wrong State */
+.bubble.wrong {
+  background: rgba(239, 83, 80, 0.5);
+  border-color: #EF5350;
+  animation: shake 0.4s;
+  box-shadow: 0 0 25px rgba(239, 83, 80, 0.6);
+}
+
+/* Order Badge */
+.bubble-order-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA000 100%);
+  color: #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Footer */
+.game-footer {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.game-footer strong {
+  color: #64B5F6;
+}
+
+.reset-tour-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ccc;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.2s;
+}
+
+.reset-tour-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Shake Animation */
+.shake {
+  animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* ---------------- MOBILE RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  .game-container {
+    width: 100%;
+    padding: 10px;
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .status-bar {
+    padding: 15px;
+    flex-direction: row;
+    /* Keep row generally, maybe wrap controls if needed */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .score-board {
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .stat-item {
+    min-width: 60px;
+    padding: 8px 12px;
+    flex: 1;
+    /* Distribute evenly */
+  }
+
+  .stat-item span {
+    font-size: 0.65rem;
+  }
+
+  .stat-item div {
+    font-size: 1.2rem;
+  }
+
+  .controls {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+
+  .stop-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .game-box {
+    min-height: 50vh;
+  }
+
+  .bubbles-container {
+    gap: 15px;
+  }
+
+  .bubble {
+    width: 85px;
+    /* Smaller for mobile but still touchable */
+    height: 85px;
+  }
+
+  .bubble-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 380px) {
+
+  /* Very small screens */
+  .bubble {
+    width: 70px;
+    height: 70px;
+  }
+
+  .bubble-text {
+    font-size: 0.9rem;
+  }
+}
